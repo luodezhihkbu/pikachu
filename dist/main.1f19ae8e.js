@@ -117,9 +117,45 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
+})({"style.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var string = ".skin * {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n.skin *::before, .skin *::after {\n  box-sizing: border-box;\n}\n.skin {\n  background: #ffe600;\n  min-height: 100vh;\n  position: relative;\n}\n\n/* \u9F3B\u5B50\u7684\u4E0B\u90E8\u5206\u4E3A\u4E09\u89D2\u5F62 */\n/* \u7528 border \u6765\u5236\u4F5C\u4E09\u89D2\u5F62\uFF1A\u5C06 div \u7684\u5BBD\u9AD8\u8BBE\u4E3A0\uFF0Cborder \u8BBE\u4E3A10px\uFF0C\u5E95\u90E8\u7684 border \u53BB\u6389\uFF0C\u5DE6\u53F3\u4E24\u8FB9\u7684 border \u8BBE\u4E3A\u900F\u660E */\n.nose {\n  border: 10px solid black;\n  border-color: black transparent transparent;\n  border-bottom: none;\n  width: 0;\n  height: 0;\n  position: relative;\n  left: 50%;\n  top: 145px;\n  margin-left: -10px;\n  z-index: 10;\n}\n/* \u9F20\u6807\u6D6E\u5230\u9F3B\u5B50\u4E0A\uFF0C\u9F3B\u5B50\u4F1A\u6643\u52A8 */\n@keyframes wave {\n  0% {\n    transform: rotate(0deg);\n  }\n  33% {\n    transform: rotate(5deg);\n  }\n  66% {\n    transform: rotate(-5deg);\n  }\n  100% {\n    transform: rotate(0deg);\n  }\n}\n.nose:hover {\n  transform-origin: center bottom; /* \u4EE5\u5E95\u90E8\u7684\u4E2D\u70B9\u4E3A\u57FA\u70B9\u6643\u52A8 */\n  animation: wave 300ms infinite linear;\n}\n/* \u9F3B\u5B50\u7684\u4E0A\u90E8\u5206\u4E3A\u5706\u5F27 */\n/* \u628A border-radius \u7684\u5DE6\u4E0B\u548C\u53F3\u4E0B\u8BBE\u4E3A0\uFF0C\u53EF\u5F97\u5230\u4E0A\u5706\u5F27 */\n.yuan {\n  position: absolute;\n  width: 20px;\n  height: 6px;\n  top: -16px;\n  left: -10px;\n  border-radius: 10px 10px 0 0;\n  background: black;\n}\n\n.eye {\n  border: 2px solid #000;\n  width: 64px;\n  height: 64px;\n  position: absolute;\n  left: 50%;\n  top: 100px;\n  margin-left: -32px;\n  background: #2e2e2e;\n  border-radius: 50%;\n}\n/* \u7528\u4F2A\u5143\u7D20\u6765\u505A\u773C\u767D\u90E8\u5206\uFF0C\u4F2A\u5143\u7D20\u9ED8\u8BA4\u5199\u4E0A content \u548C display */\n.eye::before {\n  content: \"\";\n  display: block;\n  border: 3px solid #000;\n  width: 30px;\n  height: 30px;\n  background: #fff;\n  border-radius: 50%;\n  position: relative;\n  left: 4px;\n  top: 2px;\n}\n.eye.left {\n  transform: translateX(-100px);\n}\n.eye.right {\n  transform: translateX(100px);\n}\n\n/* \u5634\u5206\u4E3A\u4E0A\u4E0B\u4E24\u90E8\u5206\uFF0C\u4E0A\u90E8\u5206\u53C8\u5206\u4E3A\u5DE6\u53F3\u4E24\u90E8\u5206 */\n.mouth {\n  width: 200px;\n  height: 200px;\n  position: absolute;\n  left: 50%;\n  top: 170px;\n  margin-left: -100px;\n}\n/* \u5634\u4E0A\u7684\u4E24\u4E2A\u90E8\u5206\u5206\u522B\u7528\u4E24\u4E2A\u5706\u89D2\u77E9\u5F62\u8868\u793A */\n/* \u5DE6\u90E8\u5206\u77E9\u5F62\u7684\u5DE6\u8FB9\u8BBE\u4E3A\u5706\u89D2\uFF0C\u4E0A\u8FB9\u8BBE\u4E3A\u900F\u660E\uFF0C\u53F3\u8FB9\u7528\u4E00\u4E2A\u4F2A\u5143\u7D20\u77E9\u5F62\u906E\u4F4F\uFF0C\u7136\u540E\u518D\u987A\u65F6\u9488\u65CB\u8F6C15\u5EA6 */\n/* \u53F3\u90E8\u5206\u77E9\u5F62\u7684\u53F3\u8FB9\u8BBE\u4E3A\u5706\u89D2\uFF0C\u4E0A\u8FB9\u8BBE\u4E3A\u900F\u660E\uFF0C\u5DE6\u8FB9\u7528\u4E00\u4E2A\u4F2A\u5143\u7D20\u77E9\u5F62\u906E\u4F4F\uFF0C\u7136\u540E\u518D\u9006\u65F6\u9488\u65CB\u8F6C15\u5EA6 */\n.mouth .up {\n  position: relative;\n  top: -20px;\n  z-index: 1;\n}\n.mouth .up .lip {\n  border: 3px solid black;\n  height: 30px;\n  width: 100px;\n  background: #ffe600;\n  border-top-color: transparent;\n  position: absolute;\n  left: 50%;\n  margin-left: -50px;\n}\n.mouth .up .lip.left {\n  border-radius: 0 0 0 50px;\n  transform: rotate(-15deg) translateX(-53px);\n}\n.mouth .up .lip.right {\n  border-radius: 0 0 50px 0;\n  transform: rotate(15deg) translateX(53px);\n}\n.mouth .up .lip::before {\n  content: \"\";\n  display: block;\n  width: 7px;\n  height: 30px;\n  position: absolute;\n  bottom: 0;\n  background: #ffe600;\n}\n.mouth .up .lip.left::before {\n  right: -6px;\n}\n.mouth .up .lip.right::before {\n  left: -6px;\n}\n\n/* \u5634\u4E0B\u7684\u90E8\u5206\u662F\u4E24\u4E2A\u5706\u89D2\u77E9\u5F62\uFF0C\u4F4D\u4E8E\u6700\u5E95\u5C42\uFF0C\u5176\u4E2D yuan2 \u5728 yuan1 \u7684\u91CC\u9762 */\n/* \u7528 overflow: hidden \u906E\u4F4F\u591A\u51FA\u6765\u7684\u90E8\u5206 */\n.mouth .down {\n  height: 180px;\n  position: absolute;\n  top: 5px;\n  width: 100%;\n  overflow: hidden;\n}\n.mouth .down .yuan1 {\n  border: 3px solid black;\n  width: 150px;\n  height: 1000px;\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  margin-left: -75px;\n  border-radius: 75px/300px;\n  background: #9b000a;\n  overflow: hidden;\n}\n.mouth .down .yuan1 .yuan2 {\n  width: 200px;\n  height: 300px;\n  background: #ff485f;\n  position: absolute;\n  bottom: -155px;\n  left: 50%;\n  margin-left: -100px;\n  border-radius: 100px;\n}\n\n.face {\n  position: absolute;\n  border: 3px solid black;\n  width: 88px;\n  height: 88px;\n  left: 50%;\n  top: 200px;\n  margin-left: -44px;\n  z-index: 3;\n}\n.face.left {\n  transform: translateX(-180px);\n  background: #ff0000;\n  border-radius: 50%;\n}\n.face.right {\n  transform: translateX(180px);\n  background: #ff0000;\n  border-radius: 50%;\n}\n";
+var _default = string;
+exports.default = _default;
+},{}],"main.js":[function(require,module,exports) {
+"use strict";
+
+var _style = _interopRequireDefault(require("./style.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// 动态展示的原理：把 css 样式转化成字符串，然后用 setInterval 把字符串一个字符一个字符的在页面展示出来
+var demo = document.querySelector('#demo');
+var demo2 = document.querySelector('#demo2'); // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
+
+var n = 1;
+demo.innerText = _style.default.substr(0, n);
+demo2.innerHTML = _style.default.substr(0, n); // 每隔一段时间，执行 setInterval 里面的函数，并记录每次执行完后返回的 id
+// 当 n 大于字符串长度时暂停
+
+var id = setInterval(function () {
+  n += 1;
+
+  if (n > _style.default.length) {
+    window.clearInterval(id);
+    return;
+  }
+
+  demo.innerText = _style.default.substr(0, n);
+  demo2.innerHTML = _style.default.substr(0, n);
+  demo.scrollTop = demo.scrollHeight; // 滚动条根据页面出现的内容自动往下滚
+}, 0);
+},{"./style.js":"style.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -147,7 +183,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52474" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52367" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
