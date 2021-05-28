@@ -22,8 +22,8 @@ body {
   border: 10px solid black;
   border-color: black transparent transparent;
   border-bottom: none;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   position: relative;
   left: 50%;
   top: 145px;
@@ -115,8 +115,6 @@ body {
   width: 100px;
   background: #ffe600;
   border-top-color: transparent;
-  /* border-right-color: transparent; */
-  /* position: relative; */
   position: absolute;
   left: 50%;
   margin-left: -50px;
@@ -126,7 +124,7 @@ body {
   transform: rotate(-15deg) translateX(-53px);
 }
 .mouth .up .lip.right {
-  border-radius: 0 0 50px 0px;
+  border-radius: 0 0 50px 0;
   transform: rotate(15deg) translateX(53px);
 }
 .mouth .up .lip::before {
