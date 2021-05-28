@@ -185,22 +185,11 @@ body {
   margin-left: -44px;
   z-index: 3;
 }
-/* 在脸上加上闪电的动画 */
-.face > img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
 .face.left {
   transform: translateX(-180px);
   background: #ff0000;
   border-radius: 50%;
 }
-/* 以左上角为基准，沿 y 轴翻转180度 */
-.face.left > img{
-    transform: rotateY(180deg); 
-    transform-origin: 0 0;
-  }
 .face.right {
   transform: translateX(180px);
   background: #ff0000;
