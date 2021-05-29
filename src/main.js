@@ -11,7 +11,7 @@ demo2.innerHTML = string.substr(0, n)
 
 // 每隔一段时间，执行 setInterval 里面的函数，并记录每次执行完后返回的 id
 // 当 n 大于字符串长度时暂停
-let time = 100
+let time = 50
 const run = () => {
   n += 1
   if (n > string.length) {
@@ -33,18 +33,14 @@ let id = play() // id 只能放在全局，因为 play 和 pause 都会用到 id
 document.querySelector('#btnPause').onclick = () => {
   pause()
 }
-document.querySelector('#btnPlay').onclick = () => {
-  pause()
-  id = play()
-}
 document.querySelector('#btnSlow').onclick = () => {
   pause()
-  time = 300
+  time = 200
   id = play()
 }
 document.querySelector('#btnNormal').onclick = () => {
   pause()
-  time = 100
+  time = 50
   id = play()
 }
 document.querySelector('#btnFast').onclick = () => {

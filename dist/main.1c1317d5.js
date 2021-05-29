@@ -143,7 +143,7 @@ demo.innerText = _style.default.substr(0, n);
 demo2.innerHTML = _style.default.substr(0, n); // 每隔一段时间，执行 setInterval 里面的函数，并记录每次执行完后返回的 id
 // 当 n 大于字符串长度时暂停
 
-var time = 100;
+var time = 50;
 
 var run = function run() {
   n += 1;
@@ -172,20 +172,15 @@ document.querySelector('#btnPause').onclick = function () {
   pause();
 };
 
-document.querySelector('#btnPlay').onclick = function () {
-  pause();
-  id = play();
-};
-
 document.querySelector('#btnSlow').onclick = function () {
   pause();
-  time = 300;
+  time = 200;
   id = play();
 };
 
 document.querySelector('#btnNormal').onclick = function () {
   pause();
-  time = 100;
+  time = 50;
   id = play();
 };
 
@@ -202,4 +197,4 @@ $('button').on('click', function (e) {
   $button.addClass('active').siblings('.active').removeClass('active');
 });
 },{"./style.js":"2IwU"}]},{},["epB2"], null)
-//# sourceMappingURL=main.a7a43f40.js.map
+//# sourceMappingURL=main.1c1317d5.js.map
