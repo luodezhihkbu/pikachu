@@ -1,4 +1,8 @@
-const string = `.skin * {
+const string = `/* 注意看好啦，我要画一只皮卡丘 */
+
+/* 首先，需要准备皮卡丘的皮 */
+
+.skin * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -12,8 +16,8 @@ const string = `.skin * {
   position: relative;
 }
 
-/* 鼻子的下部分为三角形 */
-/* 用 border 来制作三角形：将 div 的宽高设为0，border 设为10px，底部的 border 去掉，左右两边的 border 设为透明 */
+/* 接下来，画皮卡丘的鼻子 */
+
 .nose {
   border: 10px solid black;
   border-color: black transparent transparent;
@@ -26,7 +30,6 @@ const string = `.skin * {
   margin-left: -10px;
   z-index: 10;
 }
-/* 鼠标浮到鼻子上，鼻子会晃动 */
 @keyframes wave {
   0% {
     transform: rotate(0deg);
@@ -42,11 +45,9 @@ const string = `.skin * {
   }
 }
 .nose:hover {
-  transform-origin: center bottom; /* 以底部的中点为基点晃动 */
+  transform-origin: center bottom;
   animation: wave 300ms infinite linear;
 }
-/* 鼻子的上部分为圆弧 */
-/* 把 border-radius 的左下和右下设为0，可得到上圆弧 */
 .yuan {
   position: absolute;
   width: 20px;
@@ -56,6 +57,10 @@ const string = `.skin * {
   border-radius: 10px 10px 0 0;
   background: black;
 }
+
+/* 把鼠标浮到鼻子上，鼻子会晃动哦 */
+
+/* 接下来，画皮卡丘的眼睛 */
 
 .eye {
   border: 2px solid #000;
@@ -68,7 +73,6 @@ const string = `.skin * {
   background: #2e2e2e;
   border-radius: 50%;
 }
-/* 用伪元素来做眼白部分，伪元素默认写上 content 和 display */
 .eye::before {
   content: "";
   display: block;
@@ -88,7 +92,8 @@ const string = `.skin * {
   transform: translateX(100px);
 }
 
-/* 嘴分为上下两部分，上部分又分为左右两部分 */
+/* 然后，画皮卡丘的上嘴唇 */
+
 .mouth {
   width: 200px;
   height: 200px;
@@ -97,9 +102,6 @@ const string = `.skin * {
   top: 170px;
   margin-left: -100px;
 }
-/* 嘴上的两个部分分别用两个圆角矩形表示 */
-/* 左部分矩形的左边设为圆角，上边设为透明（出现的虚线用一个伪元素矩阵遮住），右边用一个伪元素矩形遮住，然后再顺时针旋转15度 */
-/* 右部分矩形的右边设为圆角，上边设为透明（出现的虚线用一个伪元素矩阵遮住），左边用一个伪元素矩形遮住，然后再逆时针旋转15度 */
 .mouth .up {
   position: relative;
   top: -20px;
@@ -123,7 +125,6 @@ const string = `.skin * {
   border-radius: 0 0 50px 0;
   transform: rotate(15deg) translateX(53px);
 }
-/* 右边用伪元素矩形遮住 */
 .mouth .up .lip::before {
   content: "";
   display: block;
@@ -139,7 +140,6 @@ const string = `.skin * {
 .mouth .up .lip.right::before {
   left: -6px;
 }
-/* 上边出现的虚线用伪元素矩阵遮住 */
 .mouth .up .lip::after {
   content: "";
   display: block;
@@ -156,8 +156,8 @@ const string = `.skin * {
   right: 1px;
 }
 
-/* 嘴下的部分是两个圆角矩形，位于最底层，其中 yuan2 在 yuan1 的里面 */
-/* 用 overflow: hidden 遮住多出来的部分 */
+/* 再画小舌头 */
+
 .mouth .down {
   height: 180px;
   position: absolute;
@@ -188,6 +188,8 @@ const string = `.skin * {
   border-radius: 100px;
 }
 
+/* 最后，画红红的小脸蛋 */
+
 .face {
   position: absolute;
   border: 3px solid black;
@@ -208,5 +210,7 @@ const string = `.skin * {
   background: #ff0000;
   border-radius: 50%;
 }
+
+/* 大功告成，这只可爱的皮卡丘送给你啦 */
 `
 export default string
