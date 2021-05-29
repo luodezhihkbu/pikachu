@@ -98,8 +98,8 @@ const string = `.skin * {
   margin-left: -100px;
 }
 /* 嘴上的两个部分分别用两个圆角矩形表示 */
-/* 左部分矩形的左边设为圆角，上边设为透明，右边用一个伪元素矩形遮住，然后再顺时针旋转15度 */
-/* 右部分矩形的右边设为圆角，上边设为透明，左边用一个伪元素矩形遮住，然后再逆时针旋转15度 */
+/* 左部分矩形的左边设为圆角，上边设为透明（出现的虚线用一个伪元素矩阵遮住），右边用一个伪元素矩形遮住，然后再顺时针旋转15度 */
+/* 右部分矩形的右边设为圆角，上边设为透明（出现的虚线用一个伪元素矩阵遮住），左边用一个伪元素矩形遮住，然后再逆时针旋转15度 */
 .mouth .up {
   position: relative;
   top: -20px;
@@ -123,6 +123,7 @@ const string = `.skin * {
   border-radius: 0 0 50px 0;
   transform: rotate(15deg) translateX(53px);
 }
+/* 右边用伪元素矩形遮住 */
 .mouth .up .lip::before {
   content: "";
   display: block;
@@ -137,6 +138,22 @@ const string = `.skin * {
 }
 .mouth .up .lip.right::before {
   left: -6px;
+}
+/* 上边出现的虚线用伪元素矩阵遮住 */
+.mouth .up .lip::after {
+  content: "";
+  display: block;
+  width: 95px;
+  height: 3px;
+  position: absolute;
+  top: -5px;
+  background: #ffe600;
+}
+.mouth .up .lip.left::after {
+  left: 1px;
+}
+.mouth .up .lip.right::after {
+  right: 1px;
 }
 
 /* 嘴下的部分是两个圆角矩形，位于最底层，其中 yuan2 在 yuan1 的里面 */
