@@ -136,14 +136,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // 动态展示的原理：把 css 样式转化成字符串，然后用 setInterval 把字符串一个字符一个字符的在页面展示出来
 var demo = document.querySelector('#demo');
-var demo2 = document.querySelector('#demo2'); // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
+var demo2 = document.querySelector('#demo2');
+var btnPause = document.querySelector('#btnPause');
+var btnPlay = document.querySelector('#btnPlay');
+var btnSlow = document.querySelector('#btnSlow');
+var btnNormal = document.querySelector('#btnNormal');
+var btnFast = document.querySelector('#btnFast'); // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
 
 var n = 1;
 demo.innerText = _style.default.substr(0, n);
 demo2.innerHTML = _style.default.substr(0, n); // 每隔一段时间，执行 setInterval 里面的函数，并记录每次执行完后返回的 id
 // 当 n 大于字符串长度时暂停
 
-var id = setInterval(function () {
+var time = 100;
+
+var run = function run() {
   n += 1;
 
   if (n > _style.default.length) {
@@ -154,7 +161,45 @@ var id = setInterval(function () {
   demo.innerText = _style.default.substr(0, n);
   demo2.innerHTML = _style.default.substr(0, n);
   demo.scrollTop = demo.scrollHeight; // 滚动条根据页面出现的内容自动往下滚
-}, 0);
+};
+
+var id = setInterval(function () {
+  run();
+}, time);
+
+btnPause.onclick = function () {
+  window.clearInterval(id);
+};
+
+btnPlay.onclick = function () {
+  id = setInterval(function () {
+    run();
+  }, time);
+};
+
+btnSlow.onclick = function () {
+  window.clearInterval(id);
+  time = 300;
+  id = setInterval(function () {
+    run();
+  }, time);
+};
+
+btnNormal.onclick = function () {
+  window.clearInterval(id);
+  time = 100;
+  id = setInterval(function () {
+    run();
+  }, time);
+};
+
+btnFast.onclick = function () {
+  window.clearInterval(id);
+  time = 0;
+  id = setInterval(function () {
+    run();
+  }, time);
+};
 },{"./style.js":"style.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -183,7 +228,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52367" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64039" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
