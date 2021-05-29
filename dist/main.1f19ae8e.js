@@ -194,6 +194,13 @@ document.querySelector('#btnFast').onclick = function () {
   time = 0;
   id = play();
 };
+
+$('button').on('click', function (e) {
+  var $button = $(e.currentTarget); // 当前选中的 button
+  // 给选中的 button 加上类名 active ，移除选中 button 的兄弟元素（即未选中的 button）的类名 active
+
+  $button.addClass('active').siblings('.active').removeClass('active');
+});
 },{"./style.js":"style.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -222,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64039" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

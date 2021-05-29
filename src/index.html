@@ -15,9 +15,6 @@
     *::before, *::after {
       box-sizing: border-box;
     }
-    /*#demo2 {*/
-    /*  display: none;*/
-    /*}*/
     #demo {
       position: fixed;
       top: 0;
@@ -48,8 +45,15 @@
       margin-right: 10px;
     }
     #buttons > button {
-      margin-bottom: 10px;
-      padding: 4px 8px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 2px 2px 2px gray;
+    }
+    #buttons > button.active {
+      background: #d9d9d9;
+      box-shadow: 1px 1px 1px gray;
     }
   </style>
 </head>
@@ -78,14 +82,15 @@
       </div>
     </div>
     <div id="buttons">
+      <button id="btnSlow">慢速</button>
+      <button id="btnNormal" class="active">中速</button>
+      <button id="btnFast">快速</button>
       <button id="btnPause">暂停</button>
       <button id="btnPlay">播放</button>
-      <button id="btnSlow">慢速</button>
-      <button id="btnNormal">中速</button>
-      <button id="btnFast">快速</button>
     </div>
   </div>
 
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>
 

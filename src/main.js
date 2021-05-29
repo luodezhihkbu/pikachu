@@ -52,3 +52,10 @@ document.querySelector('#btnFast').onclick = () => {
   time = 0
   id = play()
 }
+
+$('button').on('click', function(e){
+  let $button = $(e.currentTarget) // 当前选中的 button
+  // 给选中的 button 加上类名 active ，移除选中 button 的兄弟元素（即未选中的 button）的类名 active
+  $button.addClass('active')
+    .siblings('.active').removeClass('active')
+})
