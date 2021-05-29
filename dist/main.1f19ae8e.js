@@ -136,12 +136,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // 动态展示的原理：把 css 样式转化成字符串，然后用 setInterval 把字符串一个字符一个字符的在页面展示出来
 var demo = document.querySelector('#demo');
-var demo2 = document.querySelector('#demo2');
-var btnPause = document.querySelector('#btnPause');
-var btnPlay = document.querySelector('#btnPlay');
-var btnSlow = document.querySelector('#btnSlow');
-var btnNormal = document.querySelector('#btnNormal');
-var btnFast = document.querySelector('#btnFast'); // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
+var demo2 = document.querySelector('#demo2'); // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
 
 var n = 1;
 demo.innerText = _style.default.substr(0, n);
@@ -163,42 +158,40 @@ var run = function run() {
   demo.scrollTop = demo.scrollHeight; // 滚动条根据页面出现的内容自动往下滚
 };
 
-var id = setInterval(function () {
-  run();
-}, time);
+var play = function play() {
+  return setInterval(run, time); // setInterval 接受的第一个参数是函数，所以 run 后面不要加括号
+};
 
-btnPause.onclick = function () {
+var pause = function pause() {
   window.clearInterval(id);
 };
 
-btnPlay.onclick = function () {
-  id = setInterval(function () {
-    run();
-  }, time);
+var id = play(); // id 只能放在全局，因为 play 和 pause 都会用到 id
+
+document.querySelector('#btnPause').onclick = function () {
+  pause();
 };
 
-btnSlow.onclick = function () {
-  window.clearInterval(id);
+document.querySelector('#btnPlay').onclick = function () {
+  id = play();
+};
+
+document.querySelector('#btnSlow').onclick = function () {
+  pause();
   time = 300;
-  id = setInterval(function () {
-    run();
-  }, time);
+  id = play();
 };
 
-btnNormal.onclick = function () {
-  window.clearInterval(id);
+document.querySelector('#btnNormal').onclick = function () {
+  pause();
   time = 100;
-  id = setInterval(function () {
-    run();
-  }, time);
+  id = play();
 };
 
-btnFast.onclick = function () {
-  window.clearInterval(id);
+document.querySelector('#btnFast').onclick = function () {
+  pause();
   time = 0;
-  id = setInterval(function () {
-    run();
-  }, time);
+  id = play();
 };
 },{"./style.js":"style.js"}],"../../../../../usr/local/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

@@ -3,11 +3,6 @@ import string from './style.js'
 
 const demo = document.querySelector('#demo')
 const demo2 = document.querySelector('#demo2')
-const btnPause = document.querySelector('#btnPause')
-const btnPlay = document.querySelector('#btnPlay')
-const btnSlow = document.querySelector('#btnSlow')
-const btnNormal = document.querySelector('#btnNormal')
-const btnFast = document.querySelector('#btnFast')
 
 // 在 demo 里展示出文本内容，同时，在 demo2 里同步加上样式
 let n = 1
@@ -27,36 +22,32 @@ const run = () => {
   demo2.innerHTML = string.substr(0, n)
   demo.scrollTop = demo.scrollHeight // 滚动条根据页面出现的内容自动往下滚
 }
-let id = setInterval(() => {
-  run()
-}, time)
+const play = () => {
+  return setInterval(run, time) // setInterval 接受的第一个参数是函数，所以 run 后面不要加括号
+}
+const pause = () => {
+  window.clearInterval(id)
+}
+let id = play() // id 只能放在全局，因为 play 和 pause 都会用到 id
 
-btnPause.onclick = () => {
-  window.clearInterval(id)
+document.querySelector('#btnPause').onclick = () => {
+  pause()
 }
-btnPlay.onclick = () => {
-  id = setInterval(() => {
-    run()
-  }, time)
+document.querySelector('#btnPlay').onclick = () => {
+  id = play()
 }
-btnSlow.onclick = () => {
-  window.clearInterval(id)
+document.querySelector('#btnSlow').onclick = () => {
+  pause()
   time = 300
-  id = setInterval(() => {
-    run()
-  }, time)
+  id = play()
 }
-btnNormal.onclick = () => {
-  window.clearInterval(id)
+document.querySelector('#btnNormal').onclick = () => {
+  pause()
   time = 100
-  id = setInterval(() => {
-    run()
-  }, time)
+  id = play()
 }
-btnFast.onclick = () => {
-  window.clearInterval(id)
+document.querySelector('#btnFast').onclick = () => {
+  pause()
   time = 0
-  id = setInterval(() => {
-    run()
-  }, time)
+  id = play()
 }
