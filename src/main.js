@@ -34,6 +34,7 @@ document.querySelector('#btnPause').onclick = () => {
   pause()
 }
 document.querySelector('#btnPlay').onclick = () => {
+  pause()
   id = play()
 }
 document.querySelector('#btnSlow').onclick = () => {

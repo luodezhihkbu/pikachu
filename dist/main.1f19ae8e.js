@@ -173,6 +173,7 @@ document.querySelector('#btnPause').onclick = function () {
 };
 
 document.querySelector('#btnPlay').onclick = function () {
+  pause();
   id = play();
 };
 
