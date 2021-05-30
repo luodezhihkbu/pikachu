@@ -1,11 +1,11 @@
 import string from './style.js'
 
-const demo = document.querySelector('#demo')
-const demo2 = document.querySelector('#demo2')
+const codeText = document.querySelector('#code-text')
+const codeStyle = document.querySelector('#code-style')
 
 let n = 1
-demo.innerText = string.substr(0, n)
-demo2.innerHTML = string.substr(0, n)
+codeText.innerText = string.substr(0, n)
+codeStyle.innerHTML = string.substr(0, n)
 
 let time = 50
 const run = () => {
@@ -14,9 +14,9 @@ const run = () => {
     window.clearInterval(id)
     return
   }
-  demo.innerText = string.substr(0, n)
-  demo2.innerHTML = string.substr(0, n)
-  demo.scrollTop = demo.scrollHeight
+  codeText.innerText = string.substr(0, n)
+  codeStyle.innerHTML = string.substr(0, n)
+  codeText.scrollTop = codeText.scrollHeight
 }
 const play = () => {
   return setInterval(run, time)
@@ -26,24 +26,24 @@ const pause = () => {
 }
 let id = play()
 
-document.querySelector('#btnPause').onclick = () => {
+$('#btnPause').on('click', () => {
   pause()
-}
-document.querySelector('#btnSlow').onclick = () => {
+})
+$('#btnSlow').on('click', () => {
   pause()
   time = 200
   id = play()
-}
-document.querySelector('#btnNormal').onclick = () => {
+})
+$('#btnNormal').on('click', () => {
   pause()
   time = 20
   id = play()
-}
-document.querySelector('#btnFast').onclick = () => {
+})
+$('#btnFast').on('click', () => {
   pause()
   time = 0
   id = play()
-}
+})
 
 $('button').on('click', function(e){
   let $button = $(e.currentTarget)

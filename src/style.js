@@ -48,7 +48,7 @@ const string = `/* 注意看好啦，我要画一只皮卡丘 */
   transform-origin: center bottom;
   animation: wave 300ms infinite linear;
 }
-.yuan {
+.noseUp {
   position: absolute;
   width: 20px;
   height: 6px;
@@ -165,7 +165,7 @@ const string = `/* 注意看好啦，我要画一只皮卡丘 */
   width: 100%;
   overflow: hidden;
 }
-.mouth .down .yuan1 {
+.mouth .down .tongue1 {
   border: 3px solid black;
   width: 150px;
   height: 1000px;
@@ -177,7 +177,7 @@ const string = `/* 注意看好啦，我要画一只皮卡丘 */
   background: #9b000a;
   overflow: hidden;
 }
-.mouth .down .yuan1 .yuan2 {
+.mouth .down .tongue1 .tongue2 {
   width: 200px;
   height: 300px;
   background: #ff485f;
