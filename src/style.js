@@ -1,4 +1,4 @@
-const string = `/* 注意看好啦，我要画一只皮卡丘 */
+const string = `/* 注意看好啦，我要画一只可爱的皮卡丘 */
 
 /* 首先，需要准备皮卡丘的皮 */
 
@@ -211,6 +211,6 @@ const string = `/* 注意看好啦，我要画一只皮卡丘 */
   border-radius: 50%;
 }
 
-/* 大功告成，这只可爱的皮卡丘送给你啦 */
+/* 大功告成 */
 `
 export default string
