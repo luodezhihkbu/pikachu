@@ -198,17 +198,14 @@ const string = `/* 注意看好啦，我要画一只可爱的皮卡丘 */
   left: 50%;
   top: 200px;
   margin-left: -44px;
-  z-index: 3;
+  background: #ff0000;
+  border-radius: 50%;
 }
 .face.left {
   transform: translateX(-180px);
-  background: #ff0000;
-  border-radius: 50%;
 }
 .face.right {
   transform: translateX(180px);
-  background: #ff0000;
-  border-radius: 50%;
 }
 
 /* 大功告成 */

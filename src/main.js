@@ -7,7 +7,7 @@ let n = 1
 codeText.innerText = string.substr(0, n)
 codeStyle.innerHTML = string.substr(0, n)
 
-let time = 50
+let time = 20
 const run = () => {
   n += 1
   if (n > string.length) {
